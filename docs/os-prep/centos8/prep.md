@@ -9,15 +9,6 @@ Make sure ```CONFIG_DEBUG_INFO_BTF``` and ```CONFIG_DEBUG_INFO``` are set.
 cat /boot/config-`uname -r` | grep 'CONFIG_DEBUG_INFO_BTF'
 ```
 
-**ssh configuration**
---------------------
-https://linuxconfig.org/redhat-8-enable-ssh-service
-
-allow ssh
-```sh
-firewall-cmd --zone=public --permanent --add-service=ssh
-```
-
 **libbpf installation**
 --------------------
 ```sh
@@ -35,3 +26,12 @@ sudo dnf --enablerepo=powertools install libbpf-devel
 You may runt into ```Error: Unknown repo: 'powertools'```
 
 Got some ideas from here: https://serverfault.com/questions/997896/how-to-enable-powertools-repository-in-centos-8
+
+**ssh configuration**(optional for dev testing)
+--------------------
+https://linuxconfig.org/redhat-8-enable-ssh-service
+
+allow ssh
+```sh
+firewall-cmd --zone=public --permanent --add-service=ssh
+```
