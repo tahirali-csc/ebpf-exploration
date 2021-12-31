@@ -9,6 +9,9 @@ Make sure ```CONFIG_DEBUG_INFO_BTF``` and ```CONFIG_DEBUG_INFO``` are set.
 cat /boot/config-`uname -r` | grep 'CONFIG_DEBUG_INFO_BTF'
 ```
 
+In case if you are not updated, follow this:
+https://linuxconfig.org/how-to-update-centos
+
 **libbpf installation**
 --------------------
 ```sh
@@ -35,3 +38,7 @@ allow ssh
 ```sh
 firewall-cmd --zone=public --permanent --add-service=ssh
 ```
+
+*Network quirks on Virtual Box*
+--------------------
+Make sure to connect to right network when sshing from the host machine. Choose the matching network from top list(hierarchy icon).
