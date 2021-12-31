@@ -26,9 +26,18 @@ https://centos.pkgs.org/8-stream/centos-powertools-x86_64/libbpf-devel-0.2.0-1.e
 sudo dnf --enablerepo=powertools install libbpf-devel
 ```
 
-You may runt into ```Error: Unknown repo: 'powertools'```
+You may run into ```Error: Unknown repo: 'powertools'```. The ```powertool``` repo is missing. For fix, got some ideas from here: https://serverfault.com/questions/997896/how-to-enable-powertools-repository-in-centos-8
 
-Got some ideas from here: https://serverfault.com/questions/997896/how-to-enable-powertools-repository-in-centos-8
+After successul installation of kernel headers, verify the headers:
+```sh
+sudo find /usr/ -name 'bpf_*.h
+```
+
+**Install clang**
+--------------------
+```sh
+sudo yum install clang
+```
 
 **ssh configuration**(optional for dev testing)
 --------------------
