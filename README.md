@@ -9,8 +9,10 @@ The code is here
 https://github.com/sartura/ebpf-hello-world
 
 **BPF and XDP Reference Guide**
-https://docs.cilium.io/en/stable/bpf/
-https://duo.com/labs/tech-notes/writing-an-xdp-network-filter-with-ebpf
+--------
+1. https://docs.cilium.io/en/stable/bpf/
+2. https://duo.com/labs/tech-notes/writing-an-xdp-network-filter-with-ebpf
+3. https://developers.redhat.com/blog/2021/04/01/get-started-with-xdp#task_3__map_and_count_the_processed_packets
 
 **Linux events by category:**
 --------
