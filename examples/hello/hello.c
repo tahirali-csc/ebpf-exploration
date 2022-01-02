@@ -38,6 +38,8 @@ int main(void)
 		.rlim_max = 512UL << 20,
 	};
 
+	printf("rlim_cur=%lu, rlim_max=%lu", rlim.rlim_cur, rlim.rlim_max);
+
 	err = setrlimit(RLIMIT_MEMLOCK, &rlim);
 	if (err) {
 		fprintf(stderr, "failed to change rlimit\n");
