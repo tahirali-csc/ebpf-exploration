@@ -24,4 +24,6 @@ for example, to list all sys events
 sudo ls -la /sys/kernel/debug/tracing/events/syscalls
 ```
 
-
+**bcc Reference Guide**
+--------
+https://github.com/iovisor/bcc/blob/master/docs/reference_guide.md#6-bpf_get_current_comm

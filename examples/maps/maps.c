@@ -59,6 +59,9 @@ static int print_execs(int fd)
 	struct event ev;
 	pid_t lookup_key = 0, next_key;
 
+	//The obj->maps structure contains all the maps associated with the opened BPF program.
+	//The loop iterates through the map and prints the data.The map iteration loop 
+	//should continuously run inside a infinite loop until the program is interrupted.
 	while (!bpf_map_get_next_key(fd, &lookup_key, &next_key)) {
 		err = bpf_map_lookup_elem(fd, &next_key, &ev);
 		if (err < 0) {
@@ -66,6 +69,7 @@ static int print_execs(int fd)
 			return -1;
 		}
 		printf("\nProcess Name = %s, uid = %u, pid = %u\n", ev.comm, ev.uid, ev.pid);
+		//Delete the map to avoid memory exhaustion.
 		err = bpf_map_delete_elem(fd, &next_key);
 		if (err < 0) {
 			fprintf(stderr, "failed to cleanup execs : %d\n", err);
@@ -103,6 +107,7 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 
+	//user-defined callback used by libbpf to print useful information.
 	libbpf_set_print(libbpf_print_fn);
 	
 	obj = maps_bpf__open();
@@ -123,6 +128,7 @@ int main(int argc, char **argv) {
 		goto cleanup;
 	}
 
+	//retrieve the file descriptor associated with the map
 	fd = bpf_map__fd(obj->maps.execs);
 
 	printf("printing executed commands\n");
