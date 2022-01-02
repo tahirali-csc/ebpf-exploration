@@ -23,3 +23,10 @@ for example, to list all sys events
 ```bash
 sudo ls -la /sys/kernel/debug/tracing/events/syscalls
 ```
+
+
+Compiling BPF C
+--------
+https://github.com/libbpf/libbpf
+cd src
+make BUILD_STATIC_ONLY=1 OBJDIR=../build/libbpf DESTDIR=../build INCLUDEDIR= LIBDIR= UAPIDIR= install
