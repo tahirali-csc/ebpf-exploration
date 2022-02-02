@@ -2,6 +2,7 @@
     "files.associations": {
         "vmlinux.h": "c",
         "bpf_helpers.h": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "bpf.h": "c"
     }
 }
